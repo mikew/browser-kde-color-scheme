@@ -5,5 +5,4 @@ if [ -z "$CI" ]; then
 fi
 
 rm -rf build/
-./node_modules/.bin/react-scripts-vite build
-find ./build -type f -name '*.map' -delete
+PUBLIC_URL=./ GENERATE_SOURCEMAP=false ./node_modules/.bin/react-scripts-vite build
