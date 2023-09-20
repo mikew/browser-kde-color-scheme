@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+./script/prepare-env
+./node_modules/.bin/react-scripts-vite start
