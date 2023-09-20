@@ -2,6 +2,7 @@ name: main
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   build:
@@ -24,6 +25,10 @@ jobs:
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
       - run: ./script/prepare-env
       - run: ./script/build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./build
 
   deploy:
     runs-on: ubuntu-latest
